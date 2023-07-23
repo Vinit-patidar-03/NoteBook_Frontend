@@ -9,7 +9,7 @@ function Login(props) {
       const submit = async (e)=>
       {
          e.preventDefault();
-         const response = await fetch(`http://localhost:5000/api/auth/login`, {
+         const response = await fetch(`https://notebookapi-production.up.railway.app/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
