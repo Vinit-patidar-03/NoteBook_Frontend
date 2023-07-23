@@ -8,7 +8,7 @@ const NoteState = (props) => {
 
   //Add a Note
   const addNote = async (title, description, tag) => {
-    const response = await fetch(`${host}/api/notes/addNotes`, {
+    const response = await fetch(`https://notebookapi-production.up.railway.app/addNotes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const NoteState = (props) => {
   //Delete a Note
 
   const deleteNote = async (id) => {
-    const response = await fetch(`${host}/api/notes/deleteNotes/${id}`, {
+    const response = await fetch(`https://notebookapi-production.up.railway.app/deleteNotes/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const NoteState = (props) => {
   //Edit a Note
 
   const editNote = async (id, title, description, tag) => {
-    const response = await fetch(`${host}/api/notes/updateNotes/${id}`, {
+    const response = await fetch(`https://notebookapi-production.up.railway.app/updateNotes/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const NoteState = (props) => {
 
   //Fetch Notes
   const fetchNote = async () => {
-    const response = await fetch(`${host}/api/notes/fetchNotes`, {
+    const response = await fetch(`https://notebookapi-production.up.railway.app/fetchNotes`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
