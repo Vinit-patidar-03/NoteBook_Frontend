@@ -9,7 +9,7 @@ function Login(props) {
       const submit = async (e)=>
       {
          e.preventDefault();
-         const response = await fetch(`https://notebookapi-production.up.railway.app/api/auth/login`, {
+         const response = await fetch(`https://notebookapi.vercel.app/api/auth/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -29,9 +29,9 @@ function Login(props) {
 
       const change = (e)=>
       {
-        console.log(credentials);
+        // console.log(credentials);
          setcredentials({...credentials,[e.target.name]:e.target.value})
-         console.log(credentials);
+        //  console.log(credentials);
       }
 
       
@@ -41,11 +41,11 @@ function Login(props) {
             <form onSubmit={submit}>
                 <div className="form-group my-3">
                     <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={change} id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" />
+                    <input type="email" className="form-control" value={credentials.email} onChange={change} id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" autoComplete='email' />
                 </div>
                 <div className="form-group my-3">
                     <label htmlFor="Password">Password</label>
-                    <input type="password" className="form-control" value={credentials.passward} onChange={change} id="passward" name='passward' placeholder="Password" />
+                    <input type="password" className="form-control" value={credentials.passward} onChange={change} id="passward" name='passward' placeholder="Password" autoComplete='current-password' />
                 </div>
                 <button type='submit' className="btn btn-primary" >Submit</button>
             </form>

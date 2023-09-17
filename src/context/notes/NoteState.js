@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import new_Context from "./NoteContext";
 
 const NoteState = (props) => {
-  // const host = 'http://localhost:5000';
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial);
 
   //Add a Note
   const addNote = async (title, description, tag) => {
-    const response = await fetch(`https://notebookapi-production.up.railway.app/api/notes/addNotes`, {
+    const response = await fetch(`https://notebookapi.vercel.app//api/notes/addNotes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,13 +18,13 @@ const NoteState = (props) => {
 
     const note = await response.json();
     setNotes(notes.concat(note))
-    props.showAlert("your Note has added successfully","success");
+    props.showAlert("your Note has added successfully", "success");
   }
 
   //Delete a Note
 
   const deleteNote = async (id) => {
-    const response = await fetch(`https://notebookapi-production.up.railway.app/api/notes/deleteNotes/${id}`, {
+    const response = await fetch(`https://notebookapi.vercel.app//api/notes/deleteNotes/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -40,13 +39,13 @@ const NoteState = (props) => {
     })
 
     setNotes(newNote);
-    props.showAlert("your Note has deleted successfully","success");
+    props.showAlert("your Note has deleted successfully", "success");
 
   }
   //Edit a Note
 
   const editNote = async (id, title, description, tag) => {
-    const response = await fetch(`https://notebookapi-production.up.railway.app/api/notes/updateNotes/${id}`, {
+    const response = await fetch(`https://notebookapi.vercel.app//api/notes/updateNotes/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +72,7 @@ const NoteState = (props) => {
 
   //Fetch Notes
   const fetchNote = async () => {
-    const response = await fetch(`https://notebookapi-production.up.railway.app/api/notes/fetchNotes`, {
+    const response = await fetch(`https://notebookapi.vercel.app//api/notes/fetchNotes`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
